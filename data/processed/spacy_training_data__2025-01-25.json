@@ -1,0 +1,1741 @@
+[
+    [
+        "need food 1166 melville st",
+        {
+            "entities": [
+                [
+                    5,
+                    9,
+                    "RESOURCE"
+                ],
+                [
+                    10,
+                    26,
+                    "ADDRESS"
+                ]
+            ]
+        }
+    ],
+    [
+        "food 411 w broadway",
+        {
+            "entities": [
+                [
+                    0,
+                    4,
+                    "RESOURCE"
+                ],
+                [
+                    5,
+                    19,
+                    "ADDRESS"
+                ]
+            ]
+        }
+    ],
+    [
+        "FOOD 124 1st st W",
+        {
+            "entities": [
+                [
+                    0,
+                    4,
+                    "RESOURCE"
+                ],
+                [
+                    5,
+                    17,
+                    "ADDRESS"
+                ]
+            ]
+        }
+    ],
+    [
+        "144 Booker St FOOD",
+        {
+            "entities": [
+                [
+                    0,
+                    13,
+                    "ADDRESS"
+                ],
+                [
+                    14,
+                    18,
+                    "RESOURCE"
+                ]
+            ]
+        }
+    ],
+    [
+        "food 1296 33 ave W",
+        {
+            "entities": [
+                [
+                    0,
+                    4,
+                    "RESOURCE"
+                ],
+                [
+                    5,
+                    18,
+                    "ADDRESS"
+                ]
+            ]
+        }
+    ],
+    [
+        "152 54th st food thank you",
+        {
+            "entities": [
+                [
+                    0,
+                    11,
+                    "ADDRESS"
+                ],
+                [
+                    12,
+                    16,
+                    "RESOURCE"
+                ]
+            ]
+        }
+    ],
+    [
+        "FOOD at 1231 Helmcken St",
+        {
+            "entities": [
+                [
+                    0,
+                    4,
+                    "RESOURCE"
+                ],
+                [
+                    8,
+                    24,
+                    "ADDRESS"
+                ]
+            ]
+        }
+    ],
+    [
+        "11 ave NE HUNGRY",
+        {
+            "entities": [
+                [
+                    10,
+                    16,
+                    "RESOURCE"
+                ],
+                [
+                    0,
+                    9,
+                    "ADDRESS"
+                ]
+            ]
+        }
+    ],
+    [
+        "890 arbutus MEAL ",
+        {
+            "entities": [
+                [
+                    12,
+                    16,
+                    "RESOURCE"
+                ],
+                [
+                    0,
+                    11,
+                    "ADDRESS"
+                ]
+            ]
+        }
+    ],
+    [
+        "283 3rd St. FOOD",
+        {
+            "entities": [
+                [
+                    12,
+                    16,
+                    "RESOURCE"
+                ],
+                [
+                    0,
+                    11,
+                    "ADDRESS"
+                ]
+            ]
+        }
+    ],
+    [
+        "food #11-1891 3rd st. W",
+        {
+            "entities": [
+                [
+                    0,
+                    4,
+                    "RESOURCE"
+                ],
+                [
+                    5,
+                    23,
+                    "ADDRESS"
+                ]
+            ]
+        }
+    ],
+    [
+        "FOOD C-1289 on Belmer Ave",
+        {
+            "entities": [
+                [
+                    5,
+                    25,
+                    "ADDRESS"
+                ],
+                [
+                    0,
+                    4,
+                    "RESOURCE"
+                ]
+            ]
+        }
+    ],
+    [
+        "FOOD 1602-281 77 ave W",
+        {
+            "entities": [
+                [
+                    0,
+                    4,
+                    "RESOURCE"
+                ],
+                [
+                    5,
+                    22,
+                    "ADDRESS"
+                ]
+            ]
+        }
+    ],
+    [
+        "FOOD 2-162 keefer rd",
+        {
+            "entities": [
+                [
+                    0,
+                    4,
+                    "RESOURCE"
+                ],
+                [
+                    5,
+                    20,
+                    "ADDRESS"
+                ]
+            ]
+        }
+    ],
+    [
+        "98-14195 ryan ave food",
+        {
+            "entities": [
+                [
+                    0,
+                    17,
+                    "ADDRESS"
+                ],
+                [
+                    18,
+                    22,
+                    "RESOURCE"
+                ]
+            ]
+        }
+    ],
+    [
+        "114 43rd street E FOOD",
+        {
+            "entities": [
+                [
+                    0,
+                    17,
+                    "ADDRESS"
+                ],
+                [
+                    18,
+                    22,
+                    "RESOURCE"
+                ]
+            ]
+        }
+    ],
+    [
+        "food #162-224 over on Galaxy Dr.",
+        {
+            "entities": [
+                [
+                    0,
+                    4,
+                    "RESOURCE"
+                ],
+                [
+                    5,
+                    32,
+                    "ADDRESS"
+                ]
+            ]
+        }
+    ],
+    [
+        "dinner 115 water St",
+        {
+            "entities": [
+                [
+                    0,
+                    6,
+                    "RESOURCE"
+                ],
+                [
+                    7,
+                    19,
+                    "ADDRESS"
+                ]
+            ]
+        }
+    ],
+    [
+        "breakfast 39 pender Dr",
+        {
+            "entities": [
+                [
+                    0,
+                    9,
+                    "RESOURCE"
+                ],
+                [
+                    10,
+                    22,
+                    "ADDRESS"
+                ]
+            ]
+        }
+    ],
+    [
+        "lunch 110 44 Rd",
+        {
+            "entities": [
+                [
+                    0,
+                    5,
+                    "RESOURCE"
+                ],
+                [
+                    6,
+                    15,
+                    "ADDRESS"
+                ]
+            ]
+        }
+    ],
+    [
+        "11 ryan crt BREAKFAST",
+        {
+            "entities": [
+                [
+                    12,
+                    21,
+                    "RESOURCE"
+                ],
+                [
+                    0,
+                    11,
+                    "ADDRESS"
+                ]
+            ]
+        }
+    ],
+    [
+        "need shelter 1166 melville st",
+        {
+            "entities": [
+                [
+                    13,
+                    29,
+                    "ADDRESS"
+                ],
+                [
+                    5,
+                    12,
+                    "RESOURCE"
+                ]
+            ]
+        }
+    ],
+    [
+        "bed 411 w broadway",
+        {
+            "entities": [
+                [
+                    0,
+                    3,
+                    "RESOURCE"
+                ],
+                [
+                    4,
+                    18,
+                    "ADDRESS"
+                ]
+            ]
+        }
+    ],
+    [
+        "SHELTER 124 1st st W",
+        {
+            "entities": [
+                [
+                    0,
+                    7,
+                    "RESOURCE"
+                ],
+                [
+                    8,
+                    20,
+                    "ADDRESS"
+                ]
+            ]
+        }
+    ],
+    [
+        "144 Booker St beds",
+        {
+            "entities": [
+                [
+                    0,
+                    13,
+                    "ADDRESS"
+                ],
+                [
+                    14,
+                    18,
+                    "RESOURCE"
+                ]
+            ]
+        }
+    ],
+    [
+        "bed 1296 33 ave W",
+        {
+            "entities": [
+                [
+                    0,
+                    3,
+                    "RESOURCE"
+                ],
+                [
+                    4,
+                    17,
+                    "ADDRESS"
+                ]
+            ]
+        }
+    ],
+    [
+        "152 54th st shelter please",
+        {
+            "entities": [
+                [
+                    0,
+                    11,
+                    "ADDRESS"
+                ],
+                [
+                    12,
+                    19,
+                    "RESOURCE"
+                ]
+            ]
+        }
+    ],
+    [
+        "SHELTER at 1231 Helmcken St",
+        {
+            "entities": [
+                [
+                    11,
+                    27,
+                    "ADDRESS"
+                ],
+                [
+                    0,
+                    7,
+                    "RESOURCE"
+                ]
+            ]
+        }
+    ],
+    [
+        "11 ave NE need a BED",
+        {
+            "entities": [
+                [
+                    17,
+                    20,
+                    "RESOURCE"
+                ],
+                [
+                    0,
+                    9,
+                    "ADDRESS"
+                ]
+            ]
+        }
+    ],
+    [
+        "890 arbutus HOMELESS",
+        {
+            "entities": [
+                [
+                    0,
+                    11,
+                    "ADDRESS"
+                ],
+                [
+                    12,
+                    20,
+                    "RESOURCE"
+                ]
+            ]
+        }
+    ],
+    [
+        "283 3rd St. SHELTER",
+        {
+            "entities": [
+                [
+                    0,
+                    11,
+                    "ADDRESS"
+                ],
+                [
+                    12,
+                    19,
+                    "RESOURCE"
+                ]
+            ]
+        }
+    ],
+    [
+        "shelter #11-1891 3rd st. W",
+        {
+            "entities": [
+                [
+                    8,
+                    26,
+                    "ADDRESS"
+                ],
+                [
+                    0,
+                    7,
+                    "RESOURCE"
+                ]
+            ]
+        }
+    ],
+    [
+        "beds C-1289 on Belmer Ave",
+        {
+            "entities": [
+                [
+                    5,
+                    25,
+                    "ADDRESS"
+                ],
+                [
+                    0,
+                    4,
+                    "RESOURCE"
+                ]
+            ]
+        }
+    ],
+    [
+        "shelter 1602-281 77 ave W",
+        {
+            "entities": [
+                [
+                    8,
+                    25,
+                    "ADDRESS"
+                ],
+                [
+                    0,
+                    7,
+                    "RESOURCE"
+                ]
+            ]
+        }
+    ],
+    [
+        "beds 2-162 keefer rd",
+        {
+            "entities": [
+                [
+                    5,
+                    20,
+                    "ADDRESS"
+                ],
+                [
+                    0,
+                    4,
+                    "RESOURCE"
+                ]
+            ]
+        }
+    ],
+    [
+        "98-14195 ryan ave bed",
+        {
+            "entities": [
+                [
+                    0,
+                    17,
+                    "ADDRESS"
+                ],
+                [
+                    18,
+                    21,
+                    "RESOURCE"
+                ]
+            ]
+        }
+    ],
+    [
+        "114 43rd street E shelter",
+        {
+            "entities": [
+                [
+                    0,
+                    17,
+                    "ADDRESS"
+                ],
+                [
+                    18,
+                    25,
+                    "RESOURCE"
+                ]
+            ]
+        }
+    ],
+    [
+        "bed #162-224 over on Galaxy Dr.",
+        {
+            "entities": [
+                [
+                    4,
+                    31,
+                    "ADDRESS"
+                ],
+                [
+                    0,
+                    3,
+                    "RESOURCE"
+                ]
+            ]
+        }
+    ],
+    [
+        "homeless 115 water St",
+        {
+            "entities": [
+                [
+                    0,
+                    8,
+                    "RESOURCE"
+                ],
+                [
+                    9,
+                    21,
+                    "ADDRESS"
+                ]
+            ]
+        }
+    ],
+    [
+        "need beds at 39 pender Dr",
+        {
+            "entities": [
+                [
+                    5,
+                    9,
+                    "RESOURCE"
+                ],
+                [
+                    13,
+                    25,
+                    "ADDRESS"
+                ]
+            ]
+        }
+    ],
+    [
+        "bed 110 44 Rd",
+        {
+            "entities": [
+                [
+                    0,
+                    3,
+                    "RESOURCE"
+                ],
+                [
+                    4,
+                    13,
+                    "ADDRESS"
+                ]
+            ]
+        }
+    ],
+    [
+        "11 ryan crt SHELTER",
+        {
+            "entities": [
+                [
+                    0,
+                    11,
+                    "ADDRESS"
+                ],
+                [
+                    12,
+                    19,
+                    "RESOURCE"
+                ]
+            ]
+        }
+    ],
+    [
+        "need restroom 1166 melville st",
+        {
+            "entities": [
+                [
+                    5,
+                    13,
+                    "RESOURCE"
+                ],
+                [
+                    14,
+                    30,
+                    "ADDRESS"
+                ]
+            ]
+        }
+    ],
+    [
+        "bathroom 411 w broadway",
+        {
+            "entities": [
+                [
+                    0,
+                    8,
+                    "RESOURCE"
+                ],
+                [
+                    9,
+                    23,
+                    "ADDRESS"
+                ]
+            ]
+        }
+    ],
+    [
+        "WASHROOM 124 1st st W",
+        {
+            "entities": [
+                [
+                    0,
+                    8,
+                    "RESOURCE"
+                ],
+                [
+                    9,
+                    21,
+                    "ADDRESS"
+                ]
+            ]
+        }
+    ],
+    [
+        "144 Booker St PEE",
+        {
+            "entities": [
+                [
+                    0,
+                    13,
+                    "ADDRESS"
+                ],
+                [
+                    14,
+                    17,
+                    "RESOURCE"
+                ]
+            ]
+        }
+    ],
+    [
+        "piss 1296 33 ave W",
+        {
+            "entities": [
+                [
+                    5,
+                    18,
+                    "ADDRESS"
+                ],
+                [
+                    0,
+                    4,
+                    "RESOURCE"
+                ]
+            ]
+        }
+    ],
+    [
+        "152 54th st toilet please",
+        {
+            "entities": [
+                [
+                    12,
+                    18,
+                    "RESOURCE"
+                ],
+                [
+                    0,
+                    11,
+                    "ADDRESS"
+                ]
+            ]
+        }
+    ],
+    [
+        "RESTROOM at 1231 Helmcken St",
+        {
+            "entities": [
+                [
+                    0,
+                    8,
+                    "RESOURCE"
+                ],
+                [
+                    12,
+                    28,
+                    "ADDRESS"
+                ]
+            ]
+        }
+    ],
+    [
+        "11 ave NE need a BATHROOM",
+        {
+            "entities": [
+                [
+                    0,
+                    9,
+                    "ADDRESS"
+                ],
+                [
+                    17,
+                    25,
+                    "RESOURCE"
+                ]
+            ]
+        }
+    ],
+    [
+        "890 arbutus restroom",
+        {
+            "entities": [
+                [
+                    0,
+                    11,
+                    "ADDRESS"
+                ],
+                [
+                    12,
+                    20,
+                    "RESOURCE"
+                ]
+            ]
+        }
+    ],
+    [
+        "283 3rd St. bathroom",
+        {
+            "entities": [
+                [
+                    12,
+                    20,
+                    "RESOURCE"
+                ],
+                [
+                    0,
+                    11,
+                    "ADDRESS"
+                ]
+            ]
+        }
+    ],
+    [
+        "toilet #11-1891 3rd st. W",
+        {
+            "entities": [
+                [
+                    7,
+                    25,
+                    "ADDRESS"
+                ],
+                [
+                    0,
+                    6,
+                    "RESOURCE"
+                ]
+            ]
+        }
+    ],
+    [
+        "washroom C-1289 on Belmer Ave",
+        {
+            "entities": [
+                [
+                    0,
+                    8,
+                    "RESOURCE"
+                ],
+                [
+                    9,
+                    29,
+                    "ADDRESS"
+                ]
+            ]
+        }
+    ],
+    [
+        "toilet 1602-281 77 ave W",
+        {
+            "entities": [
+                [
+                    7,
+                    24,
+                    "ADDRESS"
+                ],
+                [
+                    0,
+                    6,
+                    "RESOURCE"
+                ]
+            ]
+        }
+    ],
+    [
+        "piss 2-162 keefer rd",
+        {
+            "entities": [
+                [
+                    0,
+                    4,
+                    "RESOURCE"
+                ],
+                [
+                    5,
+                    20,
+                    "ADDRESS"
+                ]
+            ]
+        }
+    ],
+    [
+        "98-14195 ryan ave washroom",
+        {
+            "entities": [
+                [
+                    0,
+                    17,
+                    "ADDRESS"
+                ],
+                [
+                    18,
+                    26,
+                    "RESOURCE"
+                ]
+            ]
+        }
+    ],
+    [
+        "114 43rd street E bathroom",
+        {
+            "entities": [
+                [
+                    0,
+                    17,
+                    "ADDRESS"
+                ],
+                [
+                    18,
+                    26,
+                    "RESOURCE"
+                ]
+            ]
+        }
+    ],
+    [
+        "toilet #162-224 over on Galaxy Dr.",
+        {
+            "entities": [
+                [
+                    0,
+                    6,
+                    "RESOURCE"
+                ],
+                [
+                    7,
+                    34,
+                    "ADDRESS"
+                ]
+            ]
+        }
+    ],
+    [
+        "crap 115 water St",
+        {
+            "entities": [
+                [
+                    0,
+                    4,
+                    "RESOURCE"
+                ],
+                [
+                    5,
+                    17,
+                    "ADDRESS"
+                ]
+            ]
+        }
+    ],
+    [
+        "need a restroom at 39 pender Dr",
+        {
+            "entities": [
+                [
+                    19,
+                    31,
+                    "ADDRESS"
+                ],
+                [
+                    7,
+                    15,
+                    "RESOURCE"
+                ]
+            ]
+        }
+    ],
+    [
+        "poo 110 44 Rd",
+        {
+            "entities": [
+                [
+                    0,
+                    3,
+                    "RESOURCE"
+                ],
+                [
+                    4,
+                    13,
+                    "ADDRESS"
+                ]
+            ]
+        }
+    ],
+    [
+        "11 ryan crt TOILET",
+        {
+            "entities": [
+                [
+                    12,
+                    18,
+                    "RESOURCE"
+                ],
+                [
+                    0,
+                    11,
+                    "ADDRESS"
+                ]
+            ]
+        }
+    ],
+    [
+        "wifi at 1166 Melville St",
+        {
+            "entities": [
+                [
+                    8,
+                    24,
+                    "ADDRESS"
+                ],
+                [
+                    0,
+                    4,
+                    "RESOURCE"
+                ]
+            ]
+        }
+    ],
+    [
+        "411 w broadway internet",
+        {
+            "entities": [
+                [
+                    15,
+                    23,
+                    "RESOURCE"
+                ],
+                [
+                    0,
+                    14,
+                    "ADDRESS"
+                ]
+            ]
+        }
+    ],
+    [
+        "wireless 124 1st St W",
+        {
+            "entities": [
+                [
+                    0,
+                    8,
+                    "RESOURCE"
+                ],
+                [
+                    9,
+                    21,
+                    "ADDRESS"
+                ]
+            ]
+        }
+    ],
+    [
+        "need WiFi at 144 Booker St",
+        {
+            "entities": [
+                [
+                    13,
+                    26,
+                    "ADDRESS"
+                ],
+                [
+                    5,
+                    9,
+                    "RESOURCE"
+                ]
+            ]
+        }
+    ],
+    [
+        "internet at 1296 33 Ave W",
+        {
+            "entities": [
+                [
+                    0,
+                    8,
+                    "RESOURCE"
+                ],
+                [
+                    12,
+                    25,
+                    "ADDRESS"
+                ]
+            ]
+        }
+    ],
+    [
+        "152 54th St need wireless connection",
+        {
+            "entities": [
+                [
+                    0,
+                    11,
+                    "ADDRESS"
+                ],
+                [
+                    17,
+                    25,
+                    "RESOURCE"
+                ]
+            ]
+        }
+    ],
+    [
+        "free wifi near 1231 Helmcken St",
+        {
+            "entities": [
+                [
+                    5,
+                    9,
+                    "RESOURCE"
+                ],
+                [
+                    15,
+                    31,
+                    "ADDRESS"
+                ]
+            ]
+        }
+    ],
+    [
+        "11 Ave NE WIRELESS please",
+        {
+            "entities": [
+                [
+                    0,
+                    9,
+                    "ADDRESS"
+                ],
+                [
+                    10,
+                    18,
+                    "RESOURCE"
+                ]
+            ]
+        }
+    ],
+    [
+        "is there wifi at 890 Arbutus?",
+        {
+            "entities": [
+                [
+                    9,
+                    13,
+                    "RESOURCE"
+                ],
+                [
+                    17,
+                    28,
+                    "ADDRESS"
+                ]
+            ]
+        }
+    ],
+    [
+        "283 3rd St. INTERNET",
+        {
+            "entities": [
+                [
+                    0,
+                    11,
+                    "ADDRESS"
+                ],
+                [
+                    12,
+                    20,
+                    "RESOURCE"
+                ]
+            ]
+        }
+    ],
+    [
+        "wifi access at #11-1891 3rd St. W",
+        {
+            "entities": [
+                [
+                    15,
+                    33,
+                    "ADDRESS"
+                ],
+                [
+                    0,
+                    4,
+                    "RESOURCE"
+                ]
+            ]
+        }
+    ],
+    [
+        "WIRELESS C-1289 on Belmer Ave",
+        {
+            "entities": [
+                [
+                    0,
+                    8,
+                    "RESOURCE"
+                ],
+                [
+                    9,
+                    29,
+                    "ADDRESS"
+                ]
+            ]
+        }
+    ],
+    [
+        "1602-281 77 Ave W got WiFi?",
+        {
+            "entities": [
+                [
+                    22,
+                    26,
+                    "RESOURCE"
+                ],
+                [
+                    0,
+                    17,
+                    "ADDRESS"
+                ]
+            ]
+        }
+    ],
+    [
+        "free internet near 2-162 Keefer Rd",
+        {
+            "entities": [
+                [
+                    19,
+                    34,
+                    "ADDRESS"
+                ],
+                [
+                    5,
+                    13,
+                    "RESOURCE"
+                ]
+            ]
+        }
+    ],
+    [
+        "98-14195 Ryan Ave need wireless",
+        {
+            "entities": [
+                [
+                    0,
+                    17,
+                    "ADDRESS"
+                ],
+                [
+                    23,
+                    31,
+                    "RESOURCE"
+                ]
+            ]
+        }
+    ],
+    [
+        "wifi spot #162-224 Galaxy Dr.",
+        {
+            "entities": [
+                [
+                    0,
+                    4,
+                    "RESOURCE"
+                ],
+                [
+                    10,
+                    29,
+                    "ADDRESS"
+                ]
+            ]
+        }
+    ],
+    [
+        "where to find internet at 115 Water St?",
+        {
+            "entities": [
+                [
+                    26,
+                    38,
+                    "ADDRESS"
+                ],
+                [
+                    14,
+                    22,
+                    "RESOURCE"
+                ]
+            ]
+        }
+    ],
+    [
+        "wireless connection on 39 Pender Dr",
+        {
+            "entities": [
+                [
+                    0,
+                    8,
+                    "RESOURCE"
+                ],
+                [
+                    23,
+                    35,
+                    "ADDRESS"
+                ]
+            ]
+        }
+    ],
+    [
+        "need wifi close to 110 44 Rd",
+        {
+            "entities": [
+                [
+                    5,
+                    9,
+                    "RESOURCE"
+                ],
+                [
+                    19,
+                    28,
+                    "ADDRESS"
+                ]
+            ]
+        }
+    ],
+    [
+        "can\u2019t find wireless on 11 Ryan Crt",
+        {
+            "entities": [
+                [
+                    23,
+                    34,
+                    "ADDRESS"
+                ],
+                [
+                    11,
+                    19,
+                    "RESOURCE"
+                ]
+            ]
+        }
+    ],
+    [
+        "water fountain near 1166 Melville St",
+        {
+            "entities": [
+                [
+                    20,
+                    36,
+                    "ADDRESS"
+                ],
+                [
+                    0,
+                    5,
+                    "RESOURCE"
+                ],
+                [
+                    6,
+                    14,
+                    "RESOURCE"
+                ]
+            ]
+        }
+    ],
+    [
+        "411 W Broadway need a drink",
+        {
+            "entities": [
+                [
+                    22,
+                    27,
+                    "RESOURCE"
+                ],
+                [
+                    0,
+                    14,
+                    "ADDRESS"
+                ]
+            ]
+        }
+    ],
+    [
+        "fountain 124 1st St W",
+        {
+            "entities": [
+                [
+                    9,
+                    21,
+                    "ADDRESS"
+                ],
+                [
+                    0,
+                    8,
+                    "RESOURCE"
+                ]
+            ]
+        }
+    ],
+    [
+        "water please, 144 Booker St",
+        {
+            "entities": [
+                [
+                    14,
+                    27,
+                    "ADDRESS"
+                ],
+                [
+                    0,
+                    5,
+                    "RESOURCE"
+                ]
+            ]
+        }
+    ],
+    [
+        "where can I get a drink? 1296 33 Ave W",
+        {
+            "entities": [
+                [
+                    25,
+                    38,
+                    "ADDRESS"
+                ],
+                [
+                    18,
+                    23,
+                    "RESOURCE"
+                ]
+            ]
+        }
+    ],
+    [
+        "152 54th St fountain nearby?",
+        {
+            "entities": [
+                [
+                    0,
+                    11,
+                    "ADDRESS"
+                ],
+                [
+                    12,
+                    20,
+                    "RESOURCE"
+                ]
+            ]
+        }
+    ],
+    [
+        "1231 Helmcken St need WATER",
+        {
+            "entities": [
+                [
+                    22,
+                    27,
+                    "RESOURCE"
+                ],
+                [
+                    0,
+                    16,
+                    "ADDRESS"
+                ]
+            ]
+        }
+    ],
+    [
+        "drink at 11 Ave NE",
+        {
+            "entities": [
+                [
+                    9,
+                    18,
+                    "ADDRESS"
+                ],
+                [
+                    0,
+                    5,
+                    "RESOURCE"
+                ]
+            ]
+        }
+    ],
+    [
+        "283 3rd St. DRINK please",
+        {
+            "entities": [
+                [
+                    12,
+                    17,
+                    "RESOURCE"
+                ],
+                [
+                    0,
+                    11,
+                    "ADDRESS"
+                ]
+            ]
+        }
+    ],
+    [
+        "water station at #11-1891 3rd St. W",
+        {
+            "entities": [
+                [
+                    17,
+                    35,
+                    "ADDRESS"
+                ],
+                [
+                    0,
+                    5,
+                    "RESOURCE"
+                ]
+            ]
+        }
+    ],
+    [
+        "FOUNTAIN C-1289 on Belmer Ave",
+        {
+            "entities": [
+                [
+                    0,
+                    8,
+                    "RESOURCE"
+                ],
+                [
+                    9,
+                    29,
+                    "ADDRESS"
+                ]
+            ]
+        }
+    ],
+    [
+        "1602-281 77 Ave W where to drink?",
+        {
+            "entities": [
+                [
+                    0,
+                    17,
+                    "ADDRESS"
+                ],
+                [
+                    27,
+                    32,
+                    "RESOURCE"
+                ]
+            ]
+        }
+    ],
+    [
+        "drinkable water at 2-162 Keefer Rd",
+        {
+            "entities": [
+                [
+                    19,
+                    34,
+                    "ADDRESS"
+                ],
+                [
+                    10,
+                    15,
+                    "RESOURCE"
+                ]
+            ]
+        }
+    ],
+    [
+        "need fountain 98-14195 Ryan Ave",
+        {
+            "entities": [
+                [
+                    5,
+                    13,
+                    "RESOURCE"
+                ],
+                [
+                    14,
+                    31,
+                    "ADDRESS"
+                ]
+            ]
+        }
+    ],
+    [
+        "water near #162-224 Galaxy Dr.",
+        {
+            "entities": [
+                [
+                    11,
+                    30,
+                    "ADDRESS"
+                ],
+                [
+                    0,
+                    5,
+                    "RESOURCE"
+                ]
+            ]
+        }
+    ],
+    [
+        "115 Water St, can I drink there?",
+        {
+            "entities": [
+                [
+                    20,
+                    25,
+                    "RESOURCE"
+                ],
+                [
+                    0,
+                    12,
+                    "ADDRESS"
+                ]
+            ]
+        }
+    ],
+    [
+        "thirsty on 39 Pender Dr",
+        {
+            "entities": [
+                [
+                    11,
+                    23,
+                    "ADDRESS"
+                ],
+                [
+                    0,
+                    7,
+                    "RESOURCE"
+                ]
+            ]
+        }
+    ],
+    [
+        "water refill at 110 44 Rd",
+        {
+            "entities": [
+                [
+                    16,
+                    25,
+                    "ADDRESS"
+                ],
+                [
+                    0,
+                    5,
+                    "RESOURCE"
+                ]
+            ]
+        }
+    ],
+    [
+        "where\u2019s a fountain, 11 Ryan Crt?",
+        {
+            "entities": [
+                [
+                    10,
+                    18,
+                    "RESOURCE"
+                ],
+                [
+                    20,
+                    31,
+                    "ADDRESS"
+                ]
+            ]
+        }
+    ]
+]
