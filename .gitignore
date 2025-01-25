@@ -19,7 +19,8 @@ output/
 logs/
 
 # Data
-data/raw/                   # Ignore raw input files (e.g., Label Studio exports)
-data/processed/             # Ignore processed training/validation data
-!data/processed/README.md   # Keep a README in processed/ to explain the directory
-
+data/raw/*
+data/processed/*
+!data/processed/
+!data/processed/json/
+!data/processed/spacy/
