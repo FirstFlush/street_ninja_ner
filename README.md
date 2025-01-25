@@ -41,7 +41,6 @@ Although this is a side project, it could be integrated into Street Ninja's SMS 
 3. Set up your data:
    - Place your raw JSON data (e.g., Label Studio exports) in the `data/raw/` directory.
 
----
 
 ## Usage
 
@@ -82,7 +81,6 @@ for ent in doc.ents:
     print(ent.text, ent.label_)
 ```
 
----
 
 ## Notes
 
