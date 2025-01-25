@@ -1,6 +1,6 @@
 # Street Ninja NER Tool
 
-This project is a machine-learning **Named Entity Recognition (NER)** system designed to parse SMS messages for the [Street Ninja](https://github.com/FirstFlush/street_ninja/) project. It helps extract key entities from user queries, such as resources, addresses, intersections, landmarks, and parameters, while filtering out irrelevant or profane words.
+This project is a machine learning system for **Named Entity Recognition (NER)** designed to parse SMS messages for the [Street Ninja](https://github.com/FirstFlush/street_ninja/) project. It helps extract key entities from user queries, such as resources, addresses, intersections, landmarks, and parameters, while filtering out irrelevant or profane words.
 
 Although this is a side project, it could be integrated into Street Ninja's SMS parsing pipeline if it demonstrates high accuracy and practical value.
 
