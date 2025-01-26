@@ -31,12 +31,12 @@ class BaseTraining(ABC):
 
 class SpacyTraining(BaseTraining): 
     
-    def train(self, command:list[str]):
+    def train(self):
         """
         Execute the `spacy train` command using the provided configuration.
         """
         try:
-            subprocess.run(command, check=True)
+            subprocess.run(self.config.command, check=True)
         except subprocess.CalledProcessError as e:
             msg = f"Training failed wth error: {e}"
             logger.error(msg, exc_info=True)

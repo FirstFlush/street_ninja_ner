@@ -23,7 +23,6 @@ class CLITraining:
 
     @staticmethod
     def _build_spacy_training_command(
-       
             model:ModelType, 
             config_path:Path, 
             output_dir:Path, 
@@ -56,6 +55,7 @@ class CLITraining:
                 msg = f"Can not build TrainingConfig object. Invalid ModelType enum: `{model}`"
                 logger.error(msg)
                 raise ValueError(msg)
+        logger.info(f"Training command: `{" ".join(command)}`")
         return TrainingConfig(
             train_file=train_file,
             dev_file=dev_file,
@@ -66,13 +66,5 @@ class CLITraining:
         )
     
     def train(self):
-        match self.config.model:
-            case ModelType.SPACY:
-                command = self._build_spacy_training_command()
-            case _:
-                msg = f"{self.__class__.__name__} received invalid ModelType: `{self.config.model}`"
-                logger.error(msg)
-                raise ValueError(msg)
-        logger.info(f"Training command: `{" ".join(command)}`")
-        self.training.train(command=command)
+        self.training.train()
     
