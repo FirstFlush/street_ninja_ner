@@ -17,7 +17,7 @@ class CLIPreprocessor:
             case ModelType.SPACY:
                 self.preprocessor = SpacyPreprocessor(config=config)
             case _:
-                msg = f"{self.__class__.__name__}.__init__() Received invalid enum value: `{self.config.model_type}`"
+                msg = f"{self.__class__.__name__}.__init__() Received invalid ModelType: `{self.config.model_type}`"
                 logger.error(msg)
                 raise ValueError(msg)
 
@@ -65,19 +65,19 @@ class CLIPreprocessor:
         logger.info(f"Found {len(raw_files)} raw files in {raw_dir}")
         return [str(file) for file in raw_files]
 
-    def clean_processed(self):
-        """
-        Clean processed files from the relevant directory (training/validation).
-        """
-        processed_dir = DATA_DIR / "processed" / self.config.data_type.value
-        logger.info(f"Cleaning processed files in {processed_dir}...")
-        for ext_dir in ["json", "spacy"]:
-            path = processed_dir / ext_dir
-            if path.exists():
-                for file in path.glob("*"):
-                    file.unlink()
-                    logger.info(f"Deleted: {file}")
-        logger.info(f"Finished cleaning processed files in {processed_dir}.")
+    # def clean_processed(self):
+    #     """
+    #     Clean processed files from the relevant directory (training/validation).
+    #     """
+    #     processed_dir = DATA_DIR / "processed" / self.config.data_type.value
+    #     logger.info(f"Cleaning processed files in {processed_dir}...")
+    #     for ext_dir in ["json", "spacy"]:
+    #         path = processed_dir / ext_dir
+    #         if path.exists():
+    #             for file in path.glob("*"):
+    #                 file.unlink()
+    #                 logger.info(f"Deleted: {file}")
+    #     logger.info(f"Finished cleaning processed files in {processed_dir}.")
 
 
 

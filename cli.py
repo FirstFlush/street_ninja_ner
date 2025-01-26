@@ -2,7 +2,7 @@
 
 import click
 import logging
-from src.config import DATA_DIR, DEBUG, BASE_DIR, DEFAULT_MODEL
+from src.config import DATA_DIR, DEBUG, BASE_DIR, Defaults
 from src.logging_config import setup_logging
 from src.common.enums import ModelType
 from src.cli import CLIHandler
@@ -12,9 +12,7 @@ from src.cli import CLIHandler
 setup_logging(debug=DEBUG, base_dir=BASE_DIR)
 logger = logging.getLogger(__name__)
 
-# Instantiate CLIHandler with default model type (spaCy)
-default_model_type = ModelType(DEFAULT_MODEL)
-cli_handler = CLIHandler(model_type=default_model_type)
+cli_handler = CLIHandler()
 
 # Main CLI group
 @click.group()
@@ -28,14 +26,14 @@ def cli():
 @click.option(
     "--dataset-type", "-d",
     required=True,
-    type=click.Choice(["training", "validation"], case_sensitive=False),
+    type=click.Choice(cli_handler.DATASET_TYPE_CHOICES, case_sensitive=False),
     help="Specify the type of dataset being preprocessed (e.g., training or validation)."
 )
 @click.option(
     "--model", "-m",
     default="spacy",
     show_default=True,
-    type=click.Choice(["spacy", "hugging_face"], case_sensitive=False),
+    type=click.Choice(cli_handler.MODEL_CHOICES, case_sensitive=False),
     help="Specify the model type for preprocessing (e.g., spacy or hugging_face)."
 )
 @click.option(
@@ -43,12 +41,8 @@ def cli():
     is_flag=True,
     help="List raw files available for preprocessing."
 )
-@click.option(
-    "--clean", "-c",
-    is_flag=True,
-    help="Clean processed files before preprocessing."
-)
-def preprocess(model:str, dataset_type:str, list_raw:bool, clean:bool):
+
+def preprocess(model:str, dataset_type:str, list_raw:bool):
     """
     Preprocess raw data into the format required by the specified model.
     """
@@ -66,31 +60,44 @@ def preprocess(model:str, dataset_type:str, list_raw:bool, clean:bool):
             logger.info("No raw files found.")
         return
 
-    if clean:
-        cli_preprocessor.clean_processed()
-        logger.info("Processed files cleaned.")
-
     cli_preprocessor.preprocess()
     logger.info(f"Preprocessing complete. Processed data saved to {DATA_DIR / 'processed' / dataset_type}")
 
 
-# Train command (placeholder)
+# Training command
 @click.command()
 @click.option(
-    "--train-file", "-tf",
-    type=click.Path(exists=True, file_okay=True),
-    help="Path to the processed training .spacy file."
+    "--model", "-m",
+    default=None,
+    type=click.Choice(cli_handler.MODEL_CHOICES, case_sensitive=False),
+    help="Specify the model type for training (e.g., spacy or hugging_face). Defaults to default model defined in config.py."
 )
 @click.option(
-    "--dev-file", "-df",
-    type=click.Path(exists=True, file_okay=True),
-    help="Path to the processed validation .spacy file."
+    "--config", "-c",
+    default=None,
+    type=click.Path(exists=True, file_okay=True, dir_okay=False, readable=True),
+    help="Path to the config file. Defaults to './config.cfg'."
 )
-def train(train_file, dev_file):
+@click.option(
+    "--output", "-o",
+    default=None,
+    type=click.Path(file_okay=False, dir_okay=True, writable=True),
+    help="Path to save the trained model. Defaults to './output/'."
+)
+def train(model:str, config:str, output:str):
     """
-    Train a spaCy model with the latest or specified data files.
+    Train a model.
     """
-    logger.info("Training is not yet fully implemented.")
+    logger.info("Building training config object..")
+    cli_training = cli_handler.build_training(
+        model=model,
+        config_path=config,
+        output_dir=output,
+    )
+    logger.info(f"Training config: `{cli_training.config}`")
+    cli_training.train()
+    logger.info("Training complete!")
+
 
 
 # Add commands to the CLI group

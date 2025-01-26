@@ -4,24 +4,21 @@ from datetime import datetime, timezone
 import json
 import logging
 from pathlib import Path
+from typing import Any
 from spacy.tokens import DocBin
 import spacy
-from typing import Any, Literal
+from common.types import NormalizedData
 from .config import DATA_DIR
 from .common.enums import ModelType, DataType, RawDataFormat
 
 
 logger = logging.getLogger(__name__)
 
-Entity = tuple[int, int, str]
-Annotations = dict[Literal["entities"], list[Entity]]  # e.g. {"entities": [(5, 9, "RESOURCE"), ...]}
-NormalizedData = list[tuple[str, Annotations]]
 
 @dataclass
 class PreprocessorConfig:
     model_type: ModelType
     data_type: DataType
-    # raw_format: RawDataFormat
     DATA_DIR: Path = DATA_DIR
 
 
@@ -30,7 +27,7 @@ class BasePreprocessor(ABC):
     def __init__(self, config: PreprocessorConfig):
 
         self.config = config
-        self.timestamp = datetime.now(tz=timezone.utc).strftime('%Y-%m-%d')
+        # self.timestamp = datetime.now(tz=timezone.utc).strftime('%Y-%m-%d')
         match self.config.data_type:
             case DataType.TRAINING:
                 self.raw_dir = DATA_DIR / "raw" / "training"
@@ -43,8 +40,16 @@ class BasePreprocessor(ABC):
         self.raw_files = self._get_raw_data_files()
 
     def _output_path(self, ext: str) -> Path:
-        data_subdir = "training" if self.config.data_type == DataType.TRAINING else "validation"
-        return DATA_DIR / "processed" / data_subdir / ext.lower() / f"spacy_{data_subdir}_data__{self.timestamp}.{ext}"
+        match self.config.data_type:
+            case DataType.TRAINING:
+                data_subdir = "training"
+            case DataType.VALIDATION:
+                data_subdir = "validation"
+            case _:
+                msg = f"Can not construct output path due to invalid DataType enum: `{self.config.data_type}`"
+                logger.error(msg)
+                raise ValueError(msg)
+        return DATA_DIR / "processed" / data_subdir / ext.lower() / f"{data_subdir}_data.{ext}"
 
     def _get_raw_data_files(self) -> list[Path]:
         """
@@ -89,7 +94,7 @@ class SpacyPreprocessor(BasePreprocessor):
     """
     Prepare raw, annotated JSON data from label-studio and output it to
     ml/data/processed as both .json and .spacy formats.
-    Combines all raw files in data/raw/ into a single processed file.
+    Combines all raw files in data/raw/, regardless of format into a single processed file.
     """
 
     def __init__(self, config:PreprocessorConfig):

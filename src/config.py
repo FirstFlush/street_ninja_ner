@@ -9,4 +9,9 @@ DATA_DIR = BASE_DIR / "data"
 OUTPUT_DIR = BASE_DIR / "output"
 MODEL_LAST = OUTPUT_DIR / "model-last"
 MODEL_BEST = OUTPUT_DIR / "model-best"
-DEFAULT_MODEL = "spacy"
+
+
+class Defaults:
+    OUTPUT_DIR = "output"
+    MODEL = "spacy"
+    CONFIG_PATH = "config.cfg"
