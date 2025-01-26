@@ -20,7 +20,6 @@ class CLITraining:
                 logger.error(msg)
                 raise ValueError(msg)
 
-
     @staticmethod
     def _build_spacy_training_command(
             model:ModelType, 
@@ -66,5 +65,10 @@ class CLITraining:
         )
     
     def train(self):
+        if not hasattr(self, 'training'):
+            msg = f"`{self.__class__.__name__}` has no attribute 'training'."
+            logger.error(msg)
+            raise AttributeError(msg)
         self.training.train()
+        
     
