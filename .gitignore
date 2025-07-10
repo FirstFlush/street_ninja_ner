@@ -1,3 +1,5 @@
+src/archive
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
@@ -17,10 +19,13 @@ output/
 # Logs
 *.log
 logs/
+log/
+
+# Notebooks
+*.ipynb
 
 # Data
-data/raw/*
-data/processed/*
-!data/processed/
-!data/processed/json/
-!data/processed/spacy/
+data/converted/
+data/labeled/
+data/raw/
+data/spacy/
