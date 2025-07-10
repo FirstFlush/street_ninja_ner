@@ -1,35 +1,47 @@
-# Street Ninja NER Tool
-
-This project is a machine learning system for **Named Entity Recognition (NER)** designed to parse SMS messages for the [Street Ninja](https://github.com/FirstFlush/street_ninja/) project. It helps extract key entities from user queries, such as resources, addresses, intersections, landmarks, and parameters, while filtering out irrelevant or profane words.
-
-Although this is a side project, it could be integrated into Street Ninja's SMS parsing pipeline if it demonstrates high accuracy and practical value.
+# 🥷 NinjaTag
 
 
-## Features
+**NinjaTag** is a Machine Learning Named Entity Recognition (NER) system designed to process messy, short-form SMS messages submitted by users of the Street Ninja app. Its purpose is to extract structured information — like the type of resource being requested and the location — in order to route requests to the right services within the Street Ninja system.
 
-- **Entity Extraction**:
-  - Recognizes resource types (e.g., `FOOD`, `SHELTER`, `TOILET`, `WIFI`).
-  - Detects addresses, intersections, and landmarks.
-  - Extracts specific parameters (e.g., "women's shelter" or "pet-friendly").
-- **Preprocessing**:
-  - Strips out unnecessary words (e.g., profanity or filler words) before geocoding.
-- **CLI Tool**:
-  - Streamlined interface to preprocess raw data, train models, and manage workflows.
+This project focuses on building a production-quality NER pipeline tailored to the specific challenges of SMS data:
 
+- Short, often ungrammatical or fragmented messages
+- Inconsistent capitalization, slang, or spelling
+- Real-world location references that are vague, incomplete, or non-standard
+- Entities that blend meaning or overlap
 
-## Notes
-
-- This is a prototype and will likely evolve as I learn more about ML and refine the approach
-- It is intended to assist with SMS parsing in the [Street Ninja](https://github.com/FirstFlush/street_ninja/) project but remains a standalone component for now.
+Requests with implied qualifiers like safety, accessibility, or language needs
 
 
-## Future Plans
+## ✨ What It Does
 
-- Improve entity recognition for nuanced queries (e.g., slang or typos).
-- Add support for training with larger datasets.
-- Integration into the main Street Ninja app.
+This system is designed to extract 3 key types of entities from user messages:
+
+- **RESOURCE** — what the user is asking for (e.g. shelter, wifi, food)
+- **LOCATION** — where they want it (e.g. intersection, neighborhood, landmark)
+- **QUALIFIER** — constraints on the request (e.g. “for women only”, “pet-friendly”)
+
+These entities are later used to route or match requests within the Street Ninja platform.
+
+
+## 🎯 Why This Exists
+
+This is a learning-first, build-second machine learning project.
+
+- I’m using this project to learn about **annotation**, **NER modeling**, **data cleaning**, and **ML engineering best practices**
+- The system is built with **spaCy**, **Label Studio**, and fully manual annotations
+- My goal is not just to get good results, but to understand how to build NER systems that are reliable, modular, and extensible
 
 
 ## License
 
-This project is licensed under the MIT License. See [LICENSE](../LICENSE) for details.
+This project is licensed under the MIT License. See [LICENSE](./LICENSE) for details.
+
+
+## ⚠️ Disclaimer
+
+This project is actively evolving. It’s not intended for general use, production deployment, or distribution.
+
+---
+
+Thanks for checking it out ✌️  
