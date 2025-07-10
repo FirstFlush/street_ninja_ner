@@ -1,16 +1,12 @@
-from enum import Enum
+from .base_enum import CustomEnum
 
 
-class ModelType(Enum):
+class ModelType(CustomEnum):
     SPACY = "spacy"
     HUGGING_FACE = "hugging_face"
 
-class DataType(Enum):
-    TRAINING = "training"
-    VALIDATION = "validation"
-    TESTING = "testing"
-    INFERENCE = "inference"
 
-class RawDataFormat(Enum):
-    LABEL_STUDIO = "label_studio"
-    JSON_MINIMAL = "json_minimal"
+class AnnotationLabels(CustomEnum):
+    LOCATION = "LOCATION"
+    RESOURCE = "RESOURCE"
+    QUALIFIER = "QUALIFIER"

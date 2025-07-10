@@ -1,7 +1,18 @@
-from typing import Literal
+from typing import TypedDict
 
 
-# Processed JSON Data:
-Entity = tuple[int, int, str]
-Annotations = dict[Literal["entities"], list[Entity]]  # e.g. {"entities": [(5, 9, "RESOURCE"), ...]}
-NormalizedData = list[tuple[str, Annotations]]
+# JsonPrimitive = Union[str, int, float, bool, None]
+# JsonDictType = dict[str, "JsonType"]
+# JsonListType = list["JsonType"]
+# JsonType = Union[JsonPrimitive, JsonListType, JsonDictType]
+
+
+class LabelStudioAnnotatedJson(TypedDict):
+    data: dict[str, str]
+    annotations: list[dict]
+
+
+class SpacyFormattedJson(TypedDict):
+    text: str
+    entities: list[tuple[int, int, str]]
+
