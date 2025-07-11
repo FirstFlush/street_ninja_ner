@@ -1,10 +1,15 @@
-import typer
+
+import sys
 from pathlib import Path
-from .src.cli.build_docbin import DocBinBuilder
-from .src.cli.label_studio_converter import LabelStudioConverter
-from .src.common.io import FileManager
-from .src.config.config import DATA_DIR
-from .src.config.logging import setup_logging
+
+sys.path.insert(0, str(Path(__file__).resolve().parent / "src"))
+
+import typer
+from src.cli.build_docbin import DocBinBuilder
+from src.cli.label_studio_converter import LabelStudioConverter
+from src.common.io import FileManager
+from src.config.config import DATA_DIR
+from src.config.logging import setup_logging
 
 
 app = typer.Typer()
@@ -29,3 +34,7 @@ def build_docbin(input_path: Path):
     file_manager = FileManager(output_dir)
     builder = DocBinBuilder(file_manager)
     builder.build_docbin(input_path)
+
+
+if __name__ == "__main__":
+    app()
