@@ -9,7 +9,7 @@ import typer
 from src.cli.build_docbin import DocBinBuilder
 from src.cli.label_studio_converter import LabelStudioConverter
 from src.common.io import FileManager
-from src.config.config import DATA_DIR
+from src.config.constants import DATA_DIR
 from src.config.logging import setup_logging
 
 
