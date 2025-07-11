@@ -22,6 +22,24 @@ def main(debug: bool = typer.Option(False, help="Enable debug logging")):
 
 @app.command(name="convert-labels")
 def convert_labels(input_path: Path):
+    """
+    Convert raw Label Studio JSON to spaCy-formatted JSON.
+
+    This command reads the messy, nested annotation output from Label Studio
+    and converts it into a clean list of training examples that spaCy can understand.
+
+    Output format:
+      [
+        {
+          "text": "Need to pee near Olympic Village",
+          "entities": [[8, 11, "RESOURCE"], [17, 32, "LOCATION"]]
+        },
+        ...
+      ]
+
+    Args:
+        input_path: Path to the raw Label Studio export (.json)
+    """
     output_dir = DATA_DIR / "converted"
     file_manager = FileManager(output_dir)
     converter = LabelStudioConverter(file_manager)
@@ -30,6 +48,15 @@ def convert_labels(input_path: Path):
 
 @app.command(name="build-docbin")
 def build_docbin(input_path: Path):
+    """
+    Convert spaCy-formatted JSON into a .spacy DocBin file.
+
+    This command takes preprocessed training data (with text and entity spans)
+    and converts it into a binary spaCy DocBin file used for model training.
+
+    Args:
+        input_path: Path to the cleaned JSON file (from `convert-labels`)
+    """
     output_dir = DATA_DIR / "spacy"
     file_manager = FileManager(output_dir)
     builder = DocBinBuilder(file_manager)
