@@ -4,6 +4,7 @@ from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parent / "src"))
 
+import logging
 import typer
 from src.cli.build_docbin import DocBinBuilder
 from src.cli.label_studio_converter import LabelStudioConverter
@@ -13,11 +14,12 @@ from src.config.logging import setup_logging
 
 
 app = typer.Typer()
-
+logger = logging.getLogger(__name__)
 
 @app.callback()
 def main(debug: bool = typer.Option(False, help="Enable debug logging")):
     setup_logging(debug_mode=debug)
+    logger.debug("Logging config: DEBUG")
 
 
 @app.command(name="convert-labels")
