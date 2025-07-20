@@ -1,7 +1,13 @@
+from collections.abc import Iterable
 from datetime import datetime, timezone
+import logging
 from pathlib import Path
 import json
 from typing import Any
+
+
+logger = logging.getLogger(__name__)
+
 
 class FileManager:
 
@@ -16,7 +22,18 @@ class FileManager:
     def json_from_file(self, file_path: Path) -> Any:
         with open(file_path, "r", encoding="utf-8") as f:
             data = json.load(f)
+        logger.debug(f"Loaded JSON data from {file_path}")
         return data
+    
+    def json_from_files(self, dir_path: Path, **globbing_kwargs) -> Any:
+        file_paths = dir_path.glob("*.json", **globbing_kwargs)
+        data_aggregate = []
+        for file_path in file_paths:
+            data = self.json_from_file(file_path)
+            if isinstance(data, Iterable):
+                data_aggregate.extend(data)
+
+
 
     def save_json(self, output_path: Path, json_data: Any):
         with open(output_path, "w", encoding="utf-8") as out:
