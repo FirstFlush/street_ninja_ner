@@ -9,7 +9,8 @@ import typer
 from src.cli.build_docbin import DocBinBuilder
 from src.cli.label_studio_converter import LabelStudioConverter
 from src.cli.interact import InteractionClient
-from src.common.io import FileManager
+from src.cli.missed_entities import MissedEntityHandler
+from src.common.io import FileWriter
 from src.config.constants import DATA_DIR
 from src.config.logging import setup_logging
 
@@ -44,8 +45,8 @@ def convert_labels(input_path: Path):
         input_path: Path to the raw Label Studio export (.json)
     """
     output_dir = DATA_DIR / "converted"
-    file_manager = FileManager(output_dir)
-    converter = LabelStudioConverter(file_manager)
+    file_writer = FileWriter(output_dir)
+    converter = LabelStudioConverter(file_writer)
     converter.convert(input_path)
 
 
@@ -61,8 +62,8 @@ def build_docbin(input_path: Path):
         input_path: Path to the cleaned JSON file (from `convert-labels`)
     """
     output_dir = DATA_DIR / "spacy"
-    file_manager = FileManager(output_dir)
-    builder = DocBinBuilder(file_manager)
+    file_writer = FileWriter(output_dir)
+    builder = DocBinBuilder(file_writer)
     builder.build_docbin(input_path)
 
 
@@ -84,8 +85,13 @@ def interact(inquiry: str):
         typer.Exit(code=1)
     else:
       client = InteractionClient()
-      client.print_entities(inquiry)
+      client.parse_and_print(inquiry)
 
+# @app.command(name="missed_entities")
+# def missed_entities(input_path: Path):
+
+#     handler = MissedEntityHandler()
+#     handler.echo_missed_entities(input_path)
 
 if __name__ == "__main__":
     app()
