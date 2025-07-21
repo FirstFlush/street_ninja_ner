@@ -8,6 +8,7 @@ import logging
 import typer
 from src.cli.build_docbin import DocBinBuilder
 from src.cli.label_studio_converter import LabelStudioConverter
+from src.cli.interact import InteractionClient
 from src.common.io import FileManager
 from src.config.constants import DATA_DIR
 from src.config.logging import setup_logging
@@ -63,6 +64,27 @@ def build_docbin(input_path: Path):
     file_manager = FileManager(output_dir)
     builder = DocBinBuilder(file_manager)
     builder.build_docbin(input_path)
+
+
+@app.command(name="interact")
+def interact(inquiry: str):
+    """
+    Run an input string through the trained NER model and print extracted entities.
+
+    This command is designed for quick, interactive testing of the trained model
+    using real or test SMS-style messages. It loads the latest trained spaCy model,
+    runs inference, and prints out detected entities and their labels.
+
+    Args:
+        inquiry: A single text input to parse (e.g., "need food near main and hastings").
+    """
+    stripped_inquiry = inquiry.strip()
+    if not 1 <= len(stripped_inquiry) <= 256:
+        logger.error(f"Inquiry length `{len(stripped_inquiry)}` invalid. Must be between 1 <= 256 chars.")
+        typer.Exit(code=1)
+    else:
+      client = InteractionClient()
+      client.print_entities(inquiry)
 
 
 if __name__ == "__main__":
