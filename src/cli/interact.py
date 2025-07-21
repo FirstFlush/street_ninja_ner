@@ -19,7 +19,7 @@ class InteractionClient:
     - Pretty-print results for fast manual inspection
 
     Usage:
-        ner = InteractNER("data/training/model-best")
+        ner = InteractionClient("data/training/model-best")
         ner.print_entities("need shelter near main and hastings")
     """
 
@@ -30,14 +30,14 @@ class InteractionClient:
             raise FileNotFoundError(msg)
         self.nlp = spacy.load(model_path)
 
-    def parse(self, text: str) -> list[tuple[str, str]]:
+    def parse(self, inquiry: str) -> list[tuple[str, str]]:
         """
         Returns a list of (entity_text, entity_label) for the given input text.
         """
-        doc = self.nlp(text)
+        doc = self.nlp(inquiry)
         return [(ent.text, ent.label_) for ent in doc.ents]
 
-    def print_entities(self, text: str) -> None:
+    def parse_and_print(self, text: str) -> None:
         """
         Prints labeled entities for interactive CLI usage.
         """
