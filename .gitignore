@@ -1,4 +1,7 @@
+
 src/archive
+ninja-tag
+ninja-tag.ps1
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
