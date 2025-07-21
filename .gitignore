@@ -30,3 +30,5 @@ data/labeled/
 data/raw/
 data/spacy/
 data/training/
+data/eval_results/
+wandb/
