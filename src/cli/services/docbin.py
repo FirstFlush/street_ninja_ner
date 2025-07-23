@@ -1,5 +1,5 @@
 from src.common.io import FileReader, FileWriter
-from ..commands.docbin import DocbinCommand
+from ..commands.labelstudio_to_docbin.docbin import DocbinCommand
 from .base import BaseCliService
 from pathlib import Path
 

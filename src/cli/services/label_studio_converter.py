@@ -1,6 +1,6 @@
 from pathlib import Path
 from .base import BaseCliService
-from ..commands.label_studio_converter import LabelStudioCommand
+from ..commands.labelstudio_to_docbin.label_studio_converter import LabelStudioCommand
 from ...common.io import FileReader, FileWriter
 
 

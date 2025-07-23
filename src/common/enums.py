@@ -10,3 +10,9 @@ class AnnotationLabels(CustomEnum):
     LOCATION = "LOCATION"
     RESOURCE = "RESOURCE"
     QUALIFIER = "QUALIFIER"
+
+
+class DatasetSplit(CustomEnum):
+    TRAINING = "train"
+    TESTING = "test"
+    VALIDATION = "val"

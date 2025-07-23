@@ -6,10 +6,12 @@ sys.path.insert(0, str(Path(__file__).resolve().parent / "src"))
 
 import logging
 import typer
-from src.cli.services.docbin import DocbinService
-from src.cli.services.label_studio_converter import LabelStudioService
+# from src.cli.services.docbin import DocbinService
+# from src.cli.services.label_studio_converter import LabelStudioService
 from src.cli.services.interact import InteractService
 from src.cli.services.missed_entities import MissEntitiesService
+from src.cli.services.labelstudio_to_docbin import LabelStudioToDocbinService
+from src.common.enums import DatasetSplit
 from src.config.logging import setup_logging
 
 
@@ -22,41 +24,25 @@ def main(debug: bool = typer.Option(False, help="Enable debug logging")):
     logger.debug("Logging config: DEBUG")
 
 
-@app.command(name="convert-labels")
-def convert_labels(input_path: Path = typer.Option(..., "--input-path")):
+@app.command(name="labelstudio-to-docbin")
+def labelstudio_to_docbin(
+        input_path: Path = typer.Option(..., "--input-path"),
+        split: DatasetSplit = typer.Option(..., "--split"),
+):
     """
-    Convert raw Label Studio JSON to spaCy-formatted JSON.
+    Convert raw Label Studio JSON export into a spaCy DocBin file for model training.
 
-    This command reads the messy, nested annotation output from Label Studio
-    and converts it into a clean list of training examples that spaCy can understand.
+    This command performs two steps:
+    1. Converts the raw Label Studio export into spaCy-formatted JSON.
+    2. Converts that cleaned JSON into a binary .spacy DocBin file.
 
-    Output format:
-      [
-        {
-          "text": "Need to pee near Olympic Village",
-          "entities": [[8, 11, "RESOURCE"], [17, 32, "LOCATION"]]
-        },
-        ...
-      ]
+    Both the intermediate JSON and final .spacy file are saved to disk,
+    with timestamped filenames for traceability.
 
     Args:
         input_path: Path to the raw Label Studio export (.json)
     """
-    LabelStudioService.run(input_path=input_path)
-
-
-@app.command(name="docbin")
-def docbin(input_path: Path = typer.Option(..., "--input-path")):
-    """
-    Convert spaCy-formatted JSON into a .spacy DocBin file.
-
-    This command takes preprocessed training data (with text and entity spans)
-    and converts it into a binary spaCy DocBin file used for model training.
-
-    Args:
-        input_path: Path to the cleaned JSON file (from `convert-labels`)
-    """
-    DocbinService.run(input_path=input_path)
+    LabelStudioToDocbinService.run(input_path=input_path, split=split)
 
 
 @app.command(name="interact")

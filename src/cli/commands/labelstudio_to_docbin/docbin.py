@@ -1,35 +1,40 @@
 from pathlib import Path
-from enum import Enum
+import shutil
 import spacy
 from typing import Any, cast
 from spacy.tokens import DocBin
 import logging
-from .base import BaseCommand
-from ...common.enums import AnnotationLabels
-from ...common.io import FileReader, FileWriter
-from ...common.types import SpacyFormattedJson
-from ...config.constants import DATA_DIR
-
+from ....common.enums import AnnotationLabels, DatasetSplit
+from ....common.io import FileReader, FileWriter
+from ....common.types import SpacyFormattedJson
+from ....config.constants import DATA_DIR
 
 logger = logging.getLogger(__name__)
 
-
-class DocbinCommand(BaseCommand):
+class DocbinBuilder:
 
     OUTPUT_DIR = DATA_DIR / "spacy"
 
-    class Kwargs(Enum):
-        INPUT_PATH = "input_path"
+    split_to_filename = {
+        DatasetSplit.TESTING : "test.spacy",
+        DatasetSplit.TRAINING : "train.spacy",
+        DatasetSplit.VALIDATION : "val.spacy",
+    }
 
     def __init__(self, file_writer: FileWriter, file_reader: FileReader = FileReader()):
         self.file_writer = file_writer
         self.file_reader = file_reader
 
-    def build_docbin(self, input_path: Path):
+    def build_docbin(self, input_path: Path, split: DatasetSplit):
         json_data = self._get_json_data(input_path)
-        output_path = self.file_writer.output_path(input_path, "spacy")
+        output_path = self.file_writer.output_path(input_path.stem, "spacy")
         self._convert_json_to_spacy(json_data, output_path)
         logger.info(f"Saved {len(json_data)} records to {output_path}")
+        self._update_latest_copy(output_path, split)
+
+    def _update_latest_copy(self, spacy_file: Path, split: DatasetSplit):
+        copy_path = self.OUTPUT_DIR / self.split_to_filename[split]
+        self.file_writer.copy_file(src=spacy_file, dst=copy_path)
 
     def _get_json_data(self, input_path: Path) -> list[SpacyFormattedJson]:
         json_data = self.file_reader.json_from_file(input_path)
