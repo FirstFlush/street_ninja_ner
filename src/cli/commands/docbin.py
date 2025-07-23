@@ -1,18 +1,26 @@
 from pathlib import Path
+from enum import Enum
 import spacy
 from typing import Any, cast
 from spacy.tokens import DocBin
 import logging
-from ..common.enums import AnnotationLabels
-from ..common.io import FileReader, FileWriter
-from ..common.types import SpacyFormattedJson
+from .base import BaseCommand
+from ...common.enums import AnnotationLabels
+from ...common.io import FileReader, FileWriter
+from ...common.types import SpacyFormattedJson
+from ...config.constants import DATA_DIR
 
 
 logger = logging.getLogger(__name__)
 
 
-class DocBinBuilder:
-    
+class DocbinCommand(BaseCommand):
+
+    OUTPUT_DIR = DATA_DIR / "spacy"
+
+    class Kwargs(Enum):
+        INPUT_PATH = "input_path"
+
     def __init__(self, file_writer: FileWriter, file_reader: FileReader = FileReader()):
         self.file_writer = file_writer
         self.file_reader = file_reader
@@ -22,7 +30,6 @@ class DocBinBuilder:
         output_path = self.file_writer.output_path(input_path, "spacy")
         self._convert_json_to_spacy(json_data, output_path)
         logger.info(f"Saved {len(json_data)} records to {output_path}")
-
 
     def _get_json_data(self, input_path: Path) -> list[SpacyFormattedJson]:
         json_data = self.file_reader.json_from_file(input_path)

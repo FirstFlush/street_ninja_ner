@@ -6,12 +6,10 @@ sys.path.insert(0, str(Path(__file__).resolve().parent / "src"))
 
 import logging
 import typer
-from src.cli.build_docbin import DocBinBuilder
-from src.cli.label_studio_converter import LabelStudioConverter
-from src.cli.interact import InteractionClient
-from src.cli.missed_entities import MissedEntityHandler
-from src.common.io import FileWriter
-from src.config.constants import DATA_DIR
+from src.cli.services.docbin import DocbinService
+from src.cli.services.label_studio_converter import LabelStudioService
+from src.cli.commands.interact import InteractCommand
+from src.cli.commands.missed_entities import MissedEntityHandler
 from src.config.logging import setup_logging
 
 
@@ -44,14 +42,11 @@ def convert_labels(input_path: Path):
     Args:
         input_path: Path to the raw Label Studio export (.json)
     """
-    output_dir = DATA_DIR / "converted"
-    file_writer = FileWriter(output_dir)
-    converter = LabelStudioConverter(file_writer)
-    converter.convert(input_path)
+    LabelStudioService.run(input_path=input_path)
 
 
-@app.command(name="build-docbin")
-def build_docbin(input_path: Path):
+@app.command(name="docbin")
+def docbin(input_path: Path = typer.Option(..., "--input-path")):
     """
     Convert spaCy-formatted JSON into a .spacy DocBin file.
 
@@ -61,10 +56,7 @@ def build_docbin(input_path: Path):
     Args:
         input_path: Path to the cleaned JSON file (from `convert-labels`)
     """
-    output_dir = DATA_DIR / "spacy"
-    file_writer = FileWriter(output_dir)
-    builder = DocBinBuilder(file_writer)
-    builder.build_docbin(input_path)
+    DocbinService.run(input_path=input_path)
 
 
 @app.command(name="interact")
@@ -77,21 +69,21 @@ def interact(inquiry: str):
     runs inference, and prints out detected entities and their labels.
 
     Args:
-        inquiry: A single text input to parse (e.g., "need food near main and hastings").
+        inquiry: A single text input to parse (e.g., "where's shelter near 222 main st?").
     """
     stripped_inquiry = inquiry.strip()
     if not 1 <= len(stripped_inquiry) <= 256:
         logger.error(f"Inquiry length `{len(stripped_inquiry)}` invalid. Must be between 1 <= 256 chars.")
         typer.Exit(code=1)
     else:
-      client = InteractionClient()
+      client = InteractCommand()
       client.parse_and_print(inquiry)
 
-# @app.command(name="missed_entities")
-# def missed_entities(input_path: Path):
+@app.command(name="missed_entities")
+def missed_entities(input_path: Path):
 
-#     handler = MissedEntityHandler()
-#     handler.echo_missed_entities(input_path)
+    handler = MissedEntityHandler()
+    handler.echo_missed_entities(input_path)
 
 if __name__ == "__main__":
     app()

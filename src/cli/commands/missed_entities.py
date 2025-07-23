@@ -1,4 +1,4 @@
-from ..common.io import FileReader, ConsoleWriter
+from ...common.io import FileReader, ConsoleWriter
 from pathlib import Path
 
 

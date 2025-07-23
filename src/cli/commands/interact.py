@@ -1,13 +1,15 @@
+from enum import Enum
 import logging
 from pathlib import Path
 import spacy
-from ..config.constants import MODEL_DIR
+from .base import BaseCommand
+from ...config.constants import MODEL_DIR
 
 
 logger = logging.getLogger(__name__)
 
 
-class InteractionClient:
+class InteractCommand(BaseCommand):
     """
     A simple interface for loading a trained spaCy NER model and parsing
     freeform text inputs, such as SMS-style inquiries.
@@ -22,6 +24,12 @@ class InteractionClient:
         ner = InteractionClient("data/training/model-best")
         ner.print_entities("need shelter near main and hastings")
     """
+
+    class Args(Enum):
+        INQUIRY = "inquiry"
+
+    class Kwargs(Enum):
+        MODEL_PATH = "model_path"
 
     def __init__(self, model_path: Path = MODEL_DIR):
         if not model_path.exists():

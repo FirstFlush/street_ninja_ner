@@ -1,14 +1,22 @@
+from enum import Enum
 import logging
 from pathlib import Path
 from typing import Any, cast
-from ..common.io import FileReader, FileWriter
-from ..common.types import LabelStudioAnnotatedJson, SpacyFormattedJson
+from .base import BaseCommand
+from ...common.io import FileReader, FileWriter
+from ...common.types import LabelStudioAnnotatedJson, SpacyFormattedJson
+from ...config.constants import DATA_DIR
 
 
 logger = logging.getLogger(__name__)
 
 
-class LabelStudioConverter:
+class LabelStudioCommand(BaseCommand):
+
+    OUTPUT_DIR = DATA_DIR / "converted"
+
+    class Kwargs(Enum):
+        INPUT_PATH = "input_path"
 
     def __init__(self, file_writer: FileWriter, file_reader: FileReader = FileReader()):
         self.file_writer = file_writer
