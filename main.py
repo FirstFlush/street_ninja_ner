@@ -8,8 +8,8 @@ import logging
 import typer
 from src.cli.services.docbin import DocbinService
 from src.cli.services.label_studio_converter import LabelStudioService
-from src.cli.commands.interact import InteractCommand
-from src.cli.commands.missed_entities import MissedEntityHandler
+from src.cli.services.interact import InteractService
+from src.cli.services.missed_entities import MissEntitiesService
 from src.config.logging import setup_logging
 
 
@@ -23,7 +23,7 @@ def main(debug: bool = typer.Option(False, help="Enable debug logging")):
 
 
 @app.command(name="convert-labels")
-def convert_labels(input_path: Path):
+def convert_labels(input_path: Path = typer.Option(..., "--input-path")):
     """
     Convert raw Label Studio JSON to spaCy-formatted JSON.
 
@@ -60,7 +60,10 @@ def docbin(input_path: Path = typer.Option(..., "--input-path")):
 
 
 @app.command(name="interact")
-def interact(inquiry: str):
+def interact(
+    inquiry: str,
+    model_dir: Path = typer.Option(None, help="Path to trained model directory. model-last/ will be used as default.")
+):
     """
     Run an input string through the trained NER model and print extracted entities.
 
@@ -71,19 +74,13 @@ def interact(inquiry: str):
     Args:
         inquiry: A single text input to parse (e.g., "where's shelter near 222 main st?").
     """
-    stripped_inquiry = inquiry.strip()
-    if not 1 <= len(stripped_inquiry) <= 256:
-        logger.error(f"Inquiry length `{len(stripped_inquiry)}` invalid. Must be between 1 <= 256 chars.")
-        typer.Exit(code=1)
-    else:
-      client = InteractCommand()
-      client.parse_and_print(inquiry)
+    InteractService.run(inquiry=inquiry, model_path=model_dir)
+
 
 @app.command(name="missed_entities")
-def missed_entities(input_path: Path):
+def missed_entities(input_path: Path = typer.Option(..., "--input-path")):
+    MissEntitiesService.run(input_path=input_path)
 
-    handler = MissedEntityHandler()
-    handler.echo_missed_entities(input_path)
 
 if __name__ == "__main__":
     app()

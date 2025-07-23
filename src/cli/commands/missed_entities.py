@@ -1,8 +1,13 @@
+from .base import BaseCommand
 from ...common.io import FileReader, ConsoleWriter
+from enum import Enum
 from pathlib import Path
 
 
-class MissedEntityHandler:
+class MissedEntitiesCommand(BaseCommand):
+
+    class Kwargs(Enum):
+        INPUT_PATH = "input_path"
 
     def __init__(
             self, 
