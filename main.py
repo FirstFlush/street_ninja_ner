@@ -41,6 +41,7 @@ def labelstudio_to_docbin(
 
     Args:
         input_path: Path to the raw Label Studio export (.json)
+        split: Dataset split type ( train / test / val )
     """
     LabelStudioToDocbinService.run(input_path=input_path, split=split)
 
