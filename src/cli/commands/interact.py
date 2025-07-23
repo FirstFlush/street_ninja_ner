@@ -29,14 +29,14 @@ class InteractCommand(BaseCommand):
         INQUIRY = "inquiry"
 
     class Kwargs(Enum):
-        MODEL_PATH = "model_path"
+        MODEL_DIR = "model_dir"
 
-    def __init__(self, model_path: Path = MODEL_DIR):
-        if not model_path.exists():
-            msg = f"Model not found: {model_path}"
+    def __init__(self, model_dir: Path = MODEL_DIR):
+        if not model_dir.exists():
+            msg = f"Model not found: {model_dir}"
             logger.error(msg)
             raise FileNotFoundError(msg)
-        self.nlp = spacy.load(model_path)
+        self.nlp = spacy.load(model_dir)
 
     def parse(self, inquiry: str) -> list[tuple[str, str]]:
         """

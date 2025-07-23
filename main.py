@@ -74,7 +74,7 @@ def interact(
     Args:
         inquiry: A single text input to parse (e.g., "where's shelter near 222 main st?").
     """
-    InteractService.run(inquiry=inquiry, model_path=model_dir)
+    InteractService.run(inquiry=inquiry, model_dir=model_dir)
 
 
 @app.command(name="missed_entities")

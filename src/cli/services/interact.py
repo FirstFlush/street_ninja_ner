@@ -19,18 +19,18 @@ class InteractService(BaseCliService[InteractCommand]):
     def run(cls, **kwargs):
         service = cls()
         inquiry = kwargs[service.command_cls.Args.INQUIRY.value].strip()
-        model_path = kwargs.get(service.command_cls.Kwargs.MODEL_PATH.value)
+        model_dir = kwargs.get(service.command_cls.Kwargs.MODEL_DIR.value)
 
         if not service._inquiry_length_valid(inquiry):
             logger.error(f"Inquiry length `{len(inquiry)}` invalid. Must be between 1 <= 256 chars.")
             Exit(code=1)
 
-        command = service.build_command(model_path)
+        command = service.build_command(model_dir)
         service.execute_command(command, inquiry)
 
-    def build_command(self, model_path: Path | None = None) -> InteractCommand:
-        if model_path:
-            return InteractCommand(model_path=model_path)
+    def build_command(self, model_dir: Path | None = None) -> InteractCommand:
+        if model_dir:
+            return InteractCommand(model_dir=model_dir)
         else:
             return InteractCommand()
 
