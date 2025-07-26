@@ -3,6 +3,7 @@ import logging
 from pathlib import Path
 import spacy
 from .base import BaseCommand
+from ...common.io import ConsoleWriter
 from ...config.constants import MODEL_DIR
 
 
@@ -31,12 +32,17 @@ class InteractCommand(BaseCommand):
     class Kwargs(Enum):
         MODEL_DIR = "model_dir"
 
-    def __init__(self, model_dir: Path = MODEL_DIR):
+    def __init__(
+            self, 
+            model_dir: Path = MODEL_DIR, 
+            console_writer: ConsoleWriter = ConsoleWriter(),
+    ):
         if not model_dir.exists():
             msg = f"Model not found: {model_dir}"
             logger.error(msg)
             raise FileNotFoundError(msg)
         self.nlp = spacy.load(model_dir)
+        self.console_writer = console_writer
 
     def parse(self, inquiry: str) -> list[tuple[str, str]]:
         """
@@ -51,7 +57,7 @@ class InteractCommand(BaseCommand):
         """
         results = self.parse(text)
         if not results:
-            logger.info("No entities found")
+            self.console_writer.echo("\nNo entities found.\n")
             return
         for ent_text, label in results:
-            print(f"{label:10} | {ent_text}")
+            self.console_writer.echo(f"{label:10} | {ent_text}")
