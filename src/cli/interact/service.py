@@ -1,5 +1,5 @@
-from .base import BaseCliService
-from ..commands.interact import InteractCommand
+from ..base_service import BaseCliService
+from .command import InteractCommand
 import logging
 from pathlib import Path
 from typer import Exit

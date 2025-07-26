@@ -1,4 +1,4 @@
-from .base import BaseCommand
+from ..base_command import BaseCommand
 from ...common.io import FileReader, ConsoleWriter
 from enum import Enum
 from pathlib import Path

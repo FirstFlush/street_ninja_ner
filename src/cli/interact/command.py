@@ -2,7 +2,7 @@ from enum import Enum
 import logging
 from pathlib import Path
 import spacy
-from .base import BaseCommand
+from ..base_command import BaseCommand
 from ...common.io import ConsoleWriter
 from ...config.constants import MODEL_DIR
 

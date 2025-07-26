@@ -6,11 +6,9 @@ sys.path.insert(0, str(Path(__file__).resolve().parent / "src"))
 
 import logging
 import typer
-# from src.cli.services.docbin import DocbinService
-# from src.cli.services.label_studio_converter import LabelStudioService
-from src.cli.services.interact import InteractService
-from src.cli.services.missed_entities import MissEntitiesService
-from src.cli.services.labelstudio_to_docbin import LabelStudioToDocbinService
+from src.cli.interact.service import InteractService
+from src.cli.missed_entities.service import MissEntitiesService
+from src.cli.labelstudio_to_docbin.service import LabelStudioToDocbinService
 from src.common.enums import DatasetSplit
 from src.config.logging import setup_logging
 

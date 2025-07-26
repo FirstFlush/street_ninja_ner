@@ -2,12 +2,9 @@ from abc import ABC, abstractmethod
 import logging
 from pathlib import Path
 from typing import Type, TypeVar, Generic
-from ..commands.base import BaseCommand
-
+from .base_command import BaseCommand
 
 logger = logging.getLogger(__name__)
-
-
 T = TypeVar("T", bound=BaseCommand)
 
 

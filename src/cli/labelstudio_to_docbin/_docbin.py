@@ -1,13 +1,12 @@
 from pathlib import Path
-import shutil
 import spacy
 from typing import Any, cast
 from spacy.tokens import DocBin
 import logging
-from ....common.enums import AnnotationLabels, DatasetSplit
-from ....common.io import FileReader, FileWriter
-from ....common.types import SpacyFormattedJson
-from ....config.constants import DATA_DIR
+from ...common.enums import AnnotationLabels, DatasetSplit
+from ...common.io import FileReader, FileWriter
+from ...common.types import SpacyFormattedJson
+from ...config.constants import DATA_DIR
 
 logger = logging.getLogger(__name__)
 

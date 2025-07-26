@@ -1,6 +1,6 @@
 from pathlib import Path
-from .base import BaseCliService
-from ..commands.missed_entities import MissedEntitiesCommand
+from ..base_service import BaseCliService
+from .command import MissedEntitiesCommand
 from ...common.io import ConsoleWriter, FileReader
 
 class MissEntitiesService(BaseCliService[MissedEntitiesCommand]):

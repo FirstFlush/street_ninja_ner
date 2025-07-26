@@ -1,6 +1,6 @@
 from pathlib import Path
-from .base import BaseCliService
-from ..commands.labelstudio_to_docbin.command import LabelStudioToDocbinCommand
+from ..base_service import BaseCliService
+from .command import LabelStudioToDocbinCommand
 from ...common.enums import DatasetSplit
 
 class LabelStudioToDocbinService(BaseCliService[LabelStudioToDocbinCommand]):

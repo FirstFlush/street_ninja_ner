@@ -1,10 +1,10 @@
 import logging
 from pathlib import Path
 from typing import Any, cast
-from ....common.io import FileReader, FileWriter
-from ....common.types import LabelStudioAnnotatedJson, SpacyFormattedJson
-from ....common.enums import DatasetSplit
-from ....config.constants import DATA_DIR
+from ...common.io import FileReader, FileWriter
+from ...common.types import LabelStudioAnnotatedJson, SpacyFormattedJson
+from ...common.enums import DatasetSplit
+from ...config.constants import DATA_DIR
 
 
 logger = logging.getLogger(__name__)
