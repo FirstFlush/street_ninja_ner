@@ -31,6 +31,8 @@ log/
 data/converted/
 data/labeled/
 data/raw/
+data/model_dist/
+data/model-dist/
 data/spacy/
 data/training/
 data/eval_results/
