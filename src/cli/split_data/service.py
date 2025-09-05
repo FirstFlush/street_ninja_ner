@@ -1,6 +1,7 @@
 import logging
 from pathlib import Path
 from typer import Exit
+from typing import Type
 from src.cli.base_command import BaseCommand
 from ..base_service import BaseCliService
 from .command import SplitDataCommand
@@ -11,18 +12,24 @@ logger = logging.getLogger(__name__)
 
 class SplitDataService(BaseCliService):
 
-    command_cls = SplitDataCommand
+    command_cls: Type[SplitDataCommand] = SplitDataCommand
 
     def __init__(self, split: dict[str, float]):
         self.split = self._build_split(split)
         self._validate_split()
 
-    def build_command(self) -> BaseCommand:
-        return self.command_cls()
+    def build_command(self, input_path: Path) -> SplitDataCommand:
+        return self.command_cls(
+            input_path=input_path,
+            ratios=self.split,
+        )
 
     @classmethod
     def run(cls, input_path: Path, split: dict[str, float]):
         service = cls(split)
+        command = service.build_command(input_path)
+        command.split_and_save_data()
+        command.delete_input()
 
     def _build_split(self, split: dict[str, float]) -> RatioSplit:
         return RatioSplit(

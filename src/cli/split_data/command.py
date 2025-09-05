@@ -28,7 +28,7 @@ class SplitDataCommand(BaseCommand):
         self.file_reader = file_reader
         self.input_data = self._input_data()
 
-    def split_data(self):
+    def split_and_save_data(self):
         data = self._split_data_by_ratios()
 
         self._save_data(data.training, data_type=DatasetSplit.TRAINING)
@@ -40,11 +40,10 @@ class SplitDataCommand(BaseCommand):
         self._save_data(data.testing, data_type=DatasetSplit.TESTING)
         logger.debug("Successfully saved TESTING data")
 
-        self._delete_input()
+    def delete_input(self):
+        self.input_path.unlink()
         logger.debug(f"Successfully deleted raw input file `{str(self.input_path)}`")
 
-    def _delete_input(self):
-        self.input_path.unlink()
 
     def _save_data(self, data: list[str], data_type: DatasetSplit):
 
