@@ -25,7 +25,7 @@ class LabelStudioConverter:
         self.file_reader = file_reader
 
     def convert(self, input_path: Path) -> Path:
-        output_path = self.file_writer.output_path(input_path.stem, "json")
+        output_path = self.file_writer.output_path_from_input(input_path, self.OUTPUT_DIR, "json")
         json_data = self._get_json_data(input_path)
         converted_data = self._convert(json_data)
         self.file_writer.save_json(output_path=output_path, json_data=converted_data)

@@ -26,7 +26,7 @@ class DocbinBuilder:
 
     def build_docbin(self, input_path: Path, split: DatasetSplit):
         json_data = self._get_json_data(input_path)
-        output_path = self.file_writer.output_path(input_path.stem, "spacy")
+        output_path = self.file_writer.output_path_from_input(input_path, self.OUTPUT_DIR, "spacy")
         self._convert_json_to_spacy(json_data, output_path)
         logger.info(f"Saved {len(json_data)} records to {output_path}")
         self._update_latest_copy(output_path, split)

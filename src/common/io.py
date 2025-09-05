@@ -13,7 +13,7 @@ logger = logging.getLogger(__name__)
 class BaseIOHandler(ABC):
 
     def _timestamp(self) -> str:
-        return datetime.now(tz=timezone.utc).strftime("%y-%m-%d_%H-%M-%S")
+        return datetime.now(tz=timezone.utc).strftime("%Y-%m-%d__%H-%M-%S")
 
 
 class ConsoleWriter(BaseIOHandler):
@@ -53,23 +53,28 @@ class FileReader(BaseIOHandler):
 
 class FileWriter(BaseIOHandler):
 
-    def __init__(self, output_dir: Path):
-        self.output_dir = output_dir
-        self.output_dir.mkdir(parents=True, exist_ok=True)
-
-    def output_path(self, file_name: str, ext: str, timestamp: bool = True) -> Path:
-        ext = ext.lstrip(".")
+    def output_path_from_input(
+            self, 
+            input_path: Path, 
+            output_dir: Path, 
+            ext: str | None = None, 
+            timestamp: bool = True,
+    ) -> Path:
+        ext = ext.lstrip(".") if ext else input_path.suffix.lstrip(".")
         if timestamp: 
-            file_name = f"{file_name}__{self._timestamp()}.{ext}"
+            file_name = f"{input_path.stem}__{self._timestamp()}.{ext}"
         else:
-            file_name = f"{file_name}.{ext}"
-        return self.output_dir / file_name
+            file_name = f"{input_path.stem}.{ext}"
+        return output_dir / file_name
+
 
     def save(self, output_path: Path, text: str):
+        output_path.parent.mkdir(parents=True, exist_ok=True)
         with open(output_path, "w", encoding="utf-8") as out:
             out.write(text)
 
     def save_json(self, output_path: Path, json_data: Any):
+        output_path.parent.mkdir(parents=True, exist_ok=True)
         with open(output_path, "w", encoding="utf-8") as out:
             json.dump(json_data, out, indent=2)
 
