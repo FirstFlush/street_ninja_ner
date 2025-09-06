@@ -4,16 +4,18 @@ from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parent / "src"))
 
+from dotenv import load_dotenv
 import logging
 import typer
 from src.cli.interact.service import InteractService
 from src.cli.missed_entities.service import MissEntitiesService
 from src.cli.labelstudio_to_docbin.service import LabelStudioToDocbinService
-from src.cli.split_data.service import SplitDataService
+from src.cli.export_data.service import ExportDataService
+from src.cli.import_data.service import ImportService
 from src.common.enums import DatasetSplit
 from src.config.logging import setup_logging
 
-
+load_dotenv()
 app = typer.Typer()
 logger = logging.getLogger(__name__)
 
@@ -23,8 +25,8 @@ def main(debug: bool = typer.Option(False, help="Enable debug logging")):
     logger.debug("Logging config: DEBUG")
 
 
-@app.command(name="split-data")
-def split_data(
+@app.command(name="import")
+def import_data(
         input_path: Path = typer.Option(..., "--input-path"),
         train_ratio: float = typer.Option(0.7, "--train-ratio"),
         val_ratio: float = typer.Option(0.2, "--val-ratio"),
@@ -46,12 +48,22 @@ def split_data(
         val_ratio: Fraction of data for validation (default: 0.2) 
         test_ratio: Fraction of data for testing (default: 0.1)
     """
-    split = {
+    ratios = {
         "train_ratio": train_ratio,
         "val_ratio": val_ratio,
         "test_ratio": test_ratio,
     }
-    SplitDataService.run(input_path=input_path, split=split)
+    ImportService.run(
+        input_path=input_path, 
+        ratios=ratios,
+    )
+    # SplitDataService.run(input_path=input_path, split=split)
+
+
+
+@app.command(name="export-data")
+def export_data():
+    ExportDataService.run()
 
 
 @app.command(name="labelstudio-to-docbin")
