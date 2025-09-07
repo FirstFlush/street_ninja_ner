@@ -9,10 +9,8 @@ import logging
 import typer
 from src.cli.interact.service import InteractService
 from src.cli.missed_entities.service import MissEntitiesService
-from src.cli.labelstudio_to_docbin.service import LabelStudioToDocbinService
 from src.cli.export_data.service import ExportDataService
 from src.cli.import_data.service import ImportService
-from src.common.enums import DatasetSplit
 from src.config.logging import setup_logging
 
 load_dotenv()
@@ -60,32 +58,23 @@ def import_data(
     # SplitDataService.run(input_path=input_path, split=split)
 
 
-
-@app.command(name="export-data")
+@app.command(name="export")
 def export_data():
+    """
+    Export all dataset splits from Label Studio and convert to spaCy DocBin format.
+    
+    This command automates the complete export pipeline for all three dataset splits 
+    (training, validation, testing). For each split, it:
+    1. Exports annotated data directly from Label Studio via API
+    2. Strips unnecessary metadata to create clean spaCy-compatible JSON
+    3. Converts to binary DocBin format for model training
+    
+    All output files are saved with timestamped filenames for traceability.
+    No manual export or parameters required - the command handles all splits automatically.
+    
+    Replaces the previous workflow of manual Label Studio export + labelstudio-to-docbin command.
+    """
     ExportDataService.run()
-
-
-@app.command(name="labelstudio-to-docbin")
-def labelstudio_to_docbin(
-        input_path: Path = typer.Option(..., "--input-path"),
-        split: DatasetSplit = typer.Option(..., "--split"),
-):
-    """
-    Convert raw Label Studio JSON export into a spaCy DocBin file for model training.
-
-    This command performs two steps:
-    1. Converts the raw Label Studio export into spaCy-formatted JSON.
-    2. Converts that cleaned JSON into a binary .spacy DocBin file.
-
-    Both the intermediate JSON and final .spacy file are saved to disk,
-    with timestamped filenames for traceability.
-
-    Args:
-        input_path: Path to the raw Label Studio export (.json)
-        split: Dataset split type ( train / test / val )
-    """
-    LabelStudioToDocbinService.run(input_path=input_path, split=split)
 
 
 @app.command(name="interact")

@@ -31,7 +31,7 @@ def setup_logging(debug_mode: bool = False, log_file: Path = Path("log/error.log
     file_handler = logging.FileHandler(log_file, encoding="utf-8")
     file_handler.setLevel(logging.ERROR)
     file_handler.setFormatter(logging.Formatter(
-        fmt="%(asctime)s | %(levelname)s | %(name)s | %(message)s",
+        fmt="%(asctime)s %(levelname)s %(name)s %(message)s",
         datefmt="%Y-%m-%d %H:%M:%S",
     ))
 

@@ -20,9 +20,9 @@ class BaseCliService(Generic[T], ABC):
     def build_command(self, *args, **kwargs) -> BaseCommand:
         pass
 
-    @abstractmethod
-    def execute_command(self, command: BaseCommand, *args, **kwargs):
-        pass
+    # @abstractmethod
+    # def execute_command(self, command: BaseCommand, *args, **kwargs):
+    #     pass
 
     @classmethod
     @abstractmethod

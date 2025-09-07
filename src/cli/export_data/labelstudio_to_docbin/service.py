@@ -42,7 +42,6 @@ class LabelStudioToDocbinService:
         
         self.docbin_builder.build_docbin(json_path, self.split_enum)
 
-
     def _build_services(self) -> tuple[LabelStudioConverter, DocbinBuilder]:
         labelstudio_converter = LabelStudioConverter(
             file_writer=self.file_writer,

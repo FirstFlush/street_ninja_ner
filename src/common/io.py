@@ -1,5 +1,6 @@
 from abc import ABC
 from collections.abc import Iterable
+from .enums import DatasetSplit
 from datetime import datetime, timezone
 import logging
 from pathlib import Path
@@ -66,6 +67,21 @@ class FileWriter(BaseIOHandler):
         else:
             file_name = f"{input_path.stem}.{ext}"
         return output_dir / file_name
+
+    def output_path_from_split(
+            self,
+            split: DatasetSplit,
+            output_dir: Path,
+            ext: str,
+            timestamp: bool = True,
+    ) -> Path:
+        ext = ext.lstrip(".")
+        if timestamp: 
+            file_name = f"{split.value}__{self._timestamp()}.{ext}"
+        else:
+            file_name = f"{split.value}.{ext}"
+        return output_dir / file_name
+
 
 
     def save(self, output_path: Path, text: str):
