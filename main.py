@@ -25,7 +25,7 @@ def main(debug: bool = typer.Option(False, help="Enable debug logging")):
 
 @app.command(name="import")
 def import_data(
-        input_path: Path = typer.Option(..., "--input-path"),
+        input_path: Path,
         train_ratio: float = typer.Option(0.7, "--train-ratio"),
         val_ratio: float = typer.Option(0.2, "--val-ratio"),
         test_ratio: float = typer.Option(0.1, "--test-ratio"),
@@ -55,7 +55,6 @@ def import_data(
         input_path=input_path, 
         ratios=ratios,
     )
-    # SplitDataService.run(input_path=input_path, split=split)
 
 
 @app.command(name="export")
