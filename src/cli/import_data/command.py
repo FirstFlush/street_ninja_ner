@@ -44,7 +44,7 @@ class ImportCommand(BaseCommand):
             msg = f"Missing label-studio API token. Did you forget to set an environment variable?"
             logger.error(msg)
             raise RuntimeError(msg)
-        
+
         headers = {"Authorization": f"Token {token}"}
         response = self.api_client.post(
             url=import_url,
@@ -68,5 +68,5 @@ class ImportCommand(BaseCommand):
         ]
         """
         data = self.file_reader.read_text(path)
-        tasks = [{"data": {"text": line.strip()}} for line in data if line.strip()]
+        tasks = [{"data": {"text": line.strip()}} for line in data.split("\n") if line.strip()]
         return tasks

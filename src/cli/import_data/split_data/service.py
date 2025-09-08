@@ -22,6 +22,7 @@ class SplitDataService:
     ):
         self.input_path = input_path
         self.ratios = self._build_ratio_split(ratios)
+        self._validate_ratios()
         self.file_writer = file_writer
         self.file_reader = file_reader
         self.input_data = self._input_data()
@@ -45,10 +46,9 @@ class SplitDataService:
     def _build_ratio_split(self, ratios: dict[str, float]) -> RatioSplit:
         ratio_split = RatioSplit(
             training=ratios["train_ratio"],
-            validation=ratios["validation_ratio"],
-            testing=ratios["testing_ratio"],
+            validation=ratios["val_ratio"],
+            testing=ratios["test_ratio"],
         )
-        self._validate_ratios()
         return ratio_split
 
     def _validate_ratios(self):
@@ -88,8 +88,6 @@ class SplitDataService:
         full_path = output_dir / file_name
         self.file_paths[data_type] = full_path
         return full_path
-
-        return output_dir / file_name
     
     def _output_dir(self, data_type: DatasetSplit) -> Path:
         match data_type:
